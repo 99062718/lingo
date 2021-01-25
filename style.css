@@ -1,0 +1,24 @@
+html, body, button, #buttonContainer{
+	min-height: 100% !important;
+}
+
+button{
+	background-color: white;
+	width: 12%;
+	height: 15%;
+	text-align: center;
+	float: left;
+	margin-left: 5%;
+}
+
+#container{
+	margin: 0px auto;
+}
+
+#buttonContainer{
+	background-color: yellow;
+	width: 25%;
+	height: 20%;
+	margin: 0px auto;
+	text-align: center;
+}
