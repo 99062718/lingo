@@ -1,4 +1,3 @@
-const pogingen = document.getElementById("pogingen");
 var buttons = [];
 var text = [];
 var poging = 0;
@@ -22,7 +21,7 @@ function buttonCreate(amountPogingen, amountButtons){
 }
 
 function randomWord(){
-	var randomNumber = Math.ceil(Math.random() * 7)
+	var randomNumber = Math.ceil(Math.random() * 12)
 	switch(randomNumber){
 		case 1:
 			return "gebak";
@@ -44,6 +43,21 @@ function randomWord(){
 			break;
 		case 7:
 			return "duits";
+			break;
+		case 8:
+			return "blauw";
+			break;
+		case 9:
+			return "appel";
+			break;
+		case 10:
+			return "beter";
+			break;
+		case 11:
+			return "china";
+			break;
+		case 12:
+			return "groen";
 			break;
 	}
 }
@@ -75,3 +89,4 @@ function wordCheck(){
 }
 
 buttonCreate(5, 5);
+document.getElementById("Text0Row0").innerHTML = chosenRandomWordSplit[0];
