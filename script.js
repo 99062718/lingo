@@ -1,8 +1,8 @@
 var buttons = [];
 var text = [];
 var poging = 0;
-var chosenRandomWord = randomWord();
-var chosenRandomWordSplit = chosenRandomWord.split("");
+var randomNumber = Math.ceil(Math.random() * words.length);
+var chosenWordSplit = words[randomNumber].split("");
 
 function buttonCreate(amountPogingen, amountButtons){
 	for(a = 0; a < amountPogingen; a++){
@@ -20,61 +20,19 @@ function buttonCreate(amountPogingen, amountButtons){
 	}
 }
 
-function randomWord(){
-	var randomNumber = Math.ceil(Math.random() * 12)
-	switch(randomNumber){
-		case 1:
-			return "gebak";
-			break;
-		case 2:
-			return "taart";
-			break;
-		case 3:
-			return "vader";
-			break;
-		case 4:
-			return "ouder";
-			break;
-		case 5:
-			return "tenen";
-			break;
-		case 6:
-			return "frans";
-			break;
-		case 7:
-			return "duits";
-			break;
-		case 8:
-			return "blauw";
-			break;
-		case 9:
-			return "appel";
-			break;
-		case 10:
-			return "beter";
-			break;
-		case 11:
-			return "china";
-			break;
-		case 12:
-			return "groen";
-			break;
-	}
-}
-
 function wordCheck(){
 	if(poging != 4){
 		var guessedWord = document.getElementById("input").value.split("");
 		for(i = 0; i < buttons[poging].length; i++){
 			document.getElementById("Text" + i + "Row" + poging).innerHTML = guessedWord[i];
-			var yellowBoxChecker = chosenRandomWordSplit.indexOf(guessedWord[i]);
-			if(guessedWord[i] == chosenRandomWord[i]){
+			var yellowBoxChecker = chosenWordSplit.indexOf(guessedWord[i]);
+			if(guessedWord[i] == chosenWordSplit[i]){
 				document.getElementById("Button" + i + "Row" + poging).style.backgroundColor = "green";
 				for(a = poging; a < buttons.length; a++){
 					document.getElementById("Text" + i + "Row" + a).innerHTML = guessedWord[i];
 					document.getElementById("Button" + i + "Row" + a).style.backgroundColor = "green";
 				}
-			}else if(guessedWord[i] == chosenRandomWord[yellowBoxChecker]){
+			}else if(guessedWord[i] == chosenWordSplit[yellowBoxChecker]){
 				document.getElementById("Button" + i + "Row" + poging).style.backgroundColor = "yellow";
 
 			}else{
@@ -89,4 +47,5 @@ function wordCheck(){
 }
 
 buttonCreate(5, 5);
-document.getElementById("Text0Row0").innerHTML = chosenRandomWordSplit[0];
+document.getElementById("Text0Row0").innerHTML = chosenWordSplit[0];
+console.log(words[randomNumber]);
