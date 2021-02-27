@@ -33,8 +33,13 @@ function wordCheck(){
 					document.getElementById("Button" + i + "Row" + a).style.backgroundColor = "green";
 				}
 			}else if(guessedWord[i] == chosenWordSplit[yellowBoxChecker]){
-				document.getElementById("Button" + i + "Row" + poging).style.backgroundColor = "yellow";
-
+				for(a = 0; a < i + 1; a++){
+					if(guessedWord[i] == guessedWord[a]){
+						document.getElementById("Button" + i + "Row" + poging).style.backgroundColor = "red";
+					}else{
+						document.getElementById("Button" + i + "Row" + poging).style.backgroundColor = "yellow";
+					}
+				}
 			}else{
 				document.getElementById("Button" + i + "Row" + poging).style.backgroundColor = "red";
 			}
